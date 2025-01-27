@@ -1,0 +1,270 @@
+/* Setting initial styles for the app */
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: radial-gradient(circle, rgb(0, 69, 93) 0%, rgb(5, 19, 38) 50%);
+}
+
+:root {
+  --bat-face-w: 20vmin;
+  --bat-face-h: calc(var(--bat-face-w) * 1.7);
+  --mouth-width: calc(var(--bat-face-w) * 0.8);
+  --torso-width: calc(var(--bat-face-w) * 2.9);
+  --torso-height: calc(var(--bat-face-h) / 3.25);
+  --torso-y: calc(var(--bat-face-h) - 0.25vmin);
+
+  /* Colors */
+  --batman-color: #000;
+}
+
+.scene {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.batman {
+  width: calc(var(--bat-face-w) * 2);
+  height: calc(var(--bat-face-w) * 3);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.batman__face {
+  --bat-face-side: calc(var(--bat-face-h) / 10);
+
+  width: var(--bat-face-w);
+  height: 0;
+  border-bottom: var(--bat-face-h) solid var(--batman-color);
+  border-left: var(--bat-face-side) solid transparent;
+  border-right: var(--bat-face-side) solid transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.batman__face::before,
+.batman__face::after {
+  --ear-slant: calc(var(--bat-face-h) / 10);
+  --ear-width: calc(var(--bat-face-h) / 4);
+  --ear-tilt: calc(var(--ear-width) / 10);
+
+  content: "";
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-color: transparent transparent var(--batman-color) transparent;
+  position: absolute;
+  top: calc(var(--ear-width) / -1.1);
+}
+
+.batman__face::before {
+  left: 0;
+  border-width: 0 var(--ear-slant) var(--ear-width) var(--ear-tilt);
+}
+
+.batman__face::after {
+  right: 0;
+  border-width: 0 var(--ear-tilt) var(--ear-width) var(--ear-slant);
+}
+
+.batman__eyes {
+  width: 80%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.batman__eyes::before,
+.batman__eyes::after {
+  --eye-color: #fff;
+  --eye-width: calc(var(--bat-face-w) / 3.2);
+  --eye-height: calc(var(--bat-face-w) / 6.1);
+
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent var(--eye-color) transparent;
+  border-width: 0 var(--eye-width) var(--eye-height) calc(var(--eye-width) / 6);
+}
+
+.batman__eyes::after {
+  transform: scaleX(-1);
+}
+
+.batman__mouth {
+  --mouth-height: calc(var(--bat-face-w) / 2);
+  --chin-size: calc(var(--mouth-height) / 7.5);
+  --chin-width: calc(var(--mouth-width) - (var(--chin-size) * 1.9));
+  --nose-side-width: calc(var(--mouth-width) / 2);
+  --skin-color: #ffdbac;
+
+  /* border: 1px solid red; */
+  width: var(--mouth-width);
+  height: var(--mouth-height);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 70%;
+  background-color: var(--skin-color);
+}
+
+.batman__mouth::before,
+.batman__mouth::after {
+  content: "";
+}
+
+/* Nose */
+.batman__mouth::before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: calc(var(--mouth-width) * 0.2) var(--nose-side-width) 0
+    var(--nose-side-width);
+  border-color: var(--batman-color) transparent transparent transparent;
+}
+
+/* Chin */
+.batman__mouth::after {
+  height: 0;
+  width: var(--chin-width);
+  border-top: calc(var(--mouth-height) / 2) solid var(--skin-color);
+  border-left: var(--chin-size) solid transparent;
+  border-right: var(--chin-size) solid transparent;
+  position: absolute;
+  top: 100%;
+}
+
+.batman__lips {
+  width: 60%;
+  height: calc(var(--bat-face-w) / 3);
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: var(--batman-color);
+  clip-path: polygon(
+    48% 32%,
+    71% 28%,
+    87.39% 23.5%,
+    75% 23%,
+    19% 24%,
+    2.39% 15.25%,
+    21% 28%
+  );
+}
+
+.batman__torso {
+  width: var(--torso-width);
+  height: 0;
+  border-bottom: var(--torso-height) solid var(--batman-color);
+  border-left: var(--mouth-width) solid transparent;
+  border-right: var(--mouth-width) solid transparent;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: var(--torso-y);
+}
+
+/* .batman__cape {
+  --chest-width: calc((var(--torso-width) / 2) + var(--mouth-width));
+  --chest-height: calc(var(--chest-width) / 2.61);
+
+  --radius-t: calc(var(--bat-face-w) / 12.1);
+  --radius-r: calc(var(--bat-face-w) * 3);
+  --radius-t1: calc(var(--bat-face-w) / 8.6);
+  --radius-r1: calc(var(--bat-face-w) * 1.618);
+
+  --shadow-b-x: calc(var(--bat-face-w) / 2.418);
+  --shadow-b-y: calc(var(--bat-face-w) / 12.09);
+  --shadow-b-s: var(--shadow-b-y);
+
+  --shadow-b-x1: calc(var(--bat-face-w) / 40.3);
+  --shadow-b-y1: calc(var(--bat-face-w) / 60.45);
+
+  --shadow-a-x: calc(var(--shadow-b-x) / 2);
+  --shadow-a-y: calc(var(--bat-face-w) / 1.56);
+  --shadow-a-s: var(--shadow-a-x);
+
+  --shadow-a-x1: calc(var(--bat-face-w) / 16.12);
+  --shadow-a-x2: calc(var(--bat-face-w) / 20);
+  --shadow-a-x3: calc(var(--bat-face-w) / 40);
+  --shadow-a-x4: var(--shadow-a-x3);
+
+  --shadow-a-y1: calc(var(--bat-face-w) / 3.2);
+  --shadow-a-y2: calc(var(--shadow-a-x3) * -1);
+  --shadow-a-y3: calc(var(--bat-face-w) / -10);
+  --shadow-a-y4: calc(var(--bat-face-w) / -5);
+
+  width: calc(var(--chest-width) * 2);
+  height: var(--chest-height);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: calc(var(--torso-height) + var(--torso-y));
+  display: flex;
+  justify-content: space-between;
+}
+
+.batman__cape--left,
+.batman__cape--right {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.batman__cape--left::before,
+.batman__cape--left::after,
+.batman__cape--right::before,
+.batman__cape--right::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 50%;
+  background-color: transparent;
+  position: absolute;
+  border-radius: var(--radius-t) var(--radius-r) 0 0 / var(--radius-t1) var(--radius-r1) 0 0;
+  border-top: 2px solid darkgray;
+}
+
+.batman__cape--left::before,
+.batman__cape--right::before {
+  box-shadow:
+    var(--shadow-b-x) calc(var(--shadow-b-y) * -1) 0 var(--shadow-b-s) var(--batman-color),
+    var(--shadow-b-x1) calc(var(--shadow-b-y1) * -1) 0 0 var(--batman-color);
+}
+
+.batman__cape--left::after,
+.batman__cape--right::after {
+  top: 50%;
+  transform: translateX(100%);
+  box-shadow:
+    var(--shadow-a-x) calc(var(--shadow-a-y) * -1) 0 var(--shadow-a-s) var(--batman-color),
+    var(--shadow-a-x1) calc(var(--shadow-a-y1) * -1) 0 0 var(--batman-color),
+    var(--shadow-a-x2) var(--shadow-a-y2) 0 calc(var(--shadow-a-x2) * -1) var(--batman-color),
+    var(--shadow-a-x3) var(--shadow-a-y3) 0 0 var(--batman-color),
+    var(--shadow-a-x4) var(--shadow-a-y4) 0 0 var(--batman-color);
+}
+
+.batman__cape--right {
+  transform: scaleX(-1);
+} */

@@ -1,0 +1,28 @@
+/* Setting initial styles for the app */
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: radial-gradient(circle, rgb(0, 69, 93) 0%, rgb(5, 19, 38) 50%);
+}
+
+/* .scene {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.batman {
+  border: 1px solid red;
+  width: 40vmin;
+  height: 60vmin;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+} */

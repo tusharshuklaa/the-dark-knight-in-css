@@ -1,0 +1,51 @@
+/* Setting initial styles for the app */
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: radial-gradient(circle, rgb(0, 69, 93) 0%, rgb(5, 19, 38) 50%);
+}
+
+:root {
+  --bat-face-w: 20vmin;
+  --bat-face-h: calc(var(--bat-face-w) * 1.7);
+
+  /* Colors */
+  --batman-color: #000;
+}
+
+.scene {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.batman {
+  width: calc(var(--bat-face-w) * 2);
+  height: calc(var(--bat-face-w) * 3);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border: 1px solid red;
+}
+
+/* .batman__face {
+  --bat-face-side: calc(var(--bat-face-h)/10);
+
+  border: 1px solid green;
+  width: var(--bat-face-w);
+  height: 0;
+  border-bottom: var(--bat-face-h) solid var(--batman-color);
+  border-left: var(--bat-face-side) solid transparent;
+  border-right: var(--bat-face-side) solid transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+} */

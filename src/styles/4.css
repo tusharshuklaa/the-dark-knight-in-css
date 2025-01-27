@@ -1,0 +1,106 @@
+/* Setting initial styles for the app */
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: radial-gradient(circle, rgb(0, 69, 93) 0%, rgb(5, 19, 38) 50%);
+}
+
+:root {
+  --bat-face-w: 20vmin;
+  --bat-face-h: calc(var(--bat-face-w) * 1.7);
+
+  /* Colors */
+  --batman-color: #000;
+}
+
+.scene {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.batman {
+  width: calc(var(--bat-face-w) * 2);
+  height: calc(var(--bat-face-w) * 3);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.batman__face {
+  --bat-face-side: calc(var(--bat-face-h)/10);
+
+  width: var(--bat-face-w);
+  height: 0;
+  border-bottom: var(--bat-face-h) solid var(--batman-color);
+  border-left: var(--bat-face-side) solid transparent;
+  border-right: var(--bat-face-side) solid transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.batman__face::before,
+.batman__face::after {
+  --ear-slant: calc(var(--bat-face-h)/10);
+  --ear-width: calc(var(--bat-face-h)/4);
+  --ear-tilt: calc(var(--ear-width)/10);
+
+  content: '';
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-color: transparent transparent var(--batman-color) transparent;
+  position: absolute;
+  top: calc(var(--ear-width)/-1.1);
+}
+
+.batman__face::before {
+  left: 0;
+  border-width: 0 var(--ear-slant) var(--ear-width) var(--ear-tilt);
+}
+
+.batman__face::after {
+  right: 0;
+  border-width: 0 var(--ear-tilt) var(--ear-width) var(--ear-slant);
+}
+
+/* .batman__eyes {
+  width: 80%;
+  height: 50px; // to be removed
+  border: 1px solid red;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.batman__eyes::before,
+.batman__eyes::after {
+  --eye-color: #fff;
+  --eye-width: calc(var(--bat-face-w)/3.2);
+  --eye-height: calc(var(--bat-face-w)/6.1);
+
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent var(--eye-color) transparent;
+  border-width: 0 var(--eye-width) var(--eye-height) calc(var(--eye-width)/6);
+}
+
+.batman__eyes::after {
+  transform: scaleX(-1);
+} */

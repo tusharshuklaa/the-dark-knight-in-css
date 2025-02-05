@@ -111,7 +111,6 @@ body {
   --nose-side-width: calc(var(--mouth-width) / 2);
   --skin-color: #ffdbac;
 
-  // border: 1px solid red;
   width: var(--mouth-width);
   height: var(--mouth-height);
   position: absolute;
@@ -127,17 +126,16 @@ body {
   content: "";
 }
 
-// Nose
 .batman__mouth::before {
   position: absolute;
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: calc(var(--mouth-width) * 0.2) var(--nose-side-width) 0 var(--nose-side-width);
+  border-width: calc(var(--mouth-width) * 0.2) var(--nose-side-width) 0
+    var(--nose-side-width);
   border-color: var(--batman-color) transparent transparent transparent;
 }
 
-// Chin
 .batman__mouth::after {
   height: 0;
   width: var(--chin-width);

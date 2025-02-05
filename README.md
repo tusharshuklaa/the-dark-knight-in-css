@@ -13,7 +13,7 @@ The project is organized as follows:
 - `styles/`: This folder contains all the CSS files used to style the Batman image.
 
 ### Styles Folder
-The `styles` folder is particularly important as it contains a series of CSS files named incrementally (e.g., `01.css`, `02.css`, etc.). Each file represents an incremental change in the development of the CSS image. By following the sequence of these files, you can see the step-by-step progression and refinement of the Batman image.
+The `styles` folder is particularly important as it contains a series of CSS files named incrementally (e.g., `01.css`, `02.css`, etc.). Each file represents an incremental change in the development of the CSS image. By following the sequence of these files, you can see the step-by-step progression and refinement of the Batman image. `1.css` contains the initial setup whereas `9.css` is the final code for the whole Batman CSS art. `10.css` has extra outlines around main parts of the image for understanding purpose only.
 
 ## Running a Local Development Server
 
